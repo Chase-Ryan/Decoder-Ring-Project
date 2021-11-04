@@ -1,8 +1,3 @@
-// Please refrain from tampering with the setup code provided here,
-// as the index.html and test files rely on this setup to work properly.
-// Only add code (e.g., helper methods, variables, etc.) within the scope
-// of the anonymous function on line 6
-
 const polybiusModule = (function () {
 
   const encoder = {
@@ -64,27 +59,27 @@ const polybiusModule = (function () {
     if (!encode) {
       let count = 0;
       for (let char of input) {
-        if (char.charCodeAt() != 32) {// if char is not a space, increase count          
+        if (char.charCodeAt() != 32) {
           count++;
         }
       }     
-      if (count % 2 != 0) { //if number of char is odd, return false;
+      if (count % 2 != 0) {
         return false;
       }
       return (
         input
-          .toLowerCase()//turn input toLowerCase         
-          .match(/[a-z]|[0-9]{2}|\s/g)//look for a letter or a pair of numbers       
-          .map((elem) => decoder[elem] || elem)//map either the key or key value to the return
+          .toLowerCase()   
+          .match(/[a-z]|[0-9]{2}|\s/g)     
+          .map((elem) => decoder[elem] || elem)
           .join("")
       );
     }
 
     return (
       input
-        .toLowerCase()//turn input toLowerCase         
-        .match(/[a-z]|[0-9]{2}|\s/g)//look for a letter or a pair of numbers       
-        .map((elem) => encoder[elem] || elem)//map either the key or key value to the return
+        .toLowerCase()
+        .match(/[a-z]|[0-9]{2}|\s/g)       
+        .map((elem) => encoder[elem] || elem)
         .join("")
     );
   }
